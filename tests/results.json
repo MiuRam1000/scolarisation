@@ -1,0 +1,16 @@
+{
+  "passed": [
+    "31 écrans : rendu desktop sans débordement",
+    "Inscription, persistance, recherche et modification du dossier",
+    "Notes : contrôle des manquants, validation, verrouillage et correction motivée",
+    "Bulletins : aperçu, validation et publication simulée",
+    "Planning : proposition et publication simulées",
+    "Paiement fictif et reçu unique local",
+    "Communication : brouillon et publication sans envoi réel",
+    "Portail parent filtré et lecture seule ; navigation SaaS",
+    "Import CSV : prévalidation, rejet et insertion locale",
+    "10 écrans mobile sans débordement et menu escamotable",
+    "Aucune erreur JavaScript pendant les parcours"
+  ],
+  "errors": []
+}
