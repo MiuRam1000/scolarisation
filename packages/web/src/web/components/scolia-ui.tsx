@@ -173,6 +173,15 @@ export function downloadCsv(name: string, cols: string[], rows: string[][]) {
   a.click();
   URL.revokeObjectURL(a.href);
 }
+/** Télécharge un contenu CSV déjà construit (ex. export serveur). */
+export function downloadCsvContent(name: string, content: string) {
+  const blob = new Blob([content], { type: "text/csv;charset=utf-8" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = name + ".csv";
+  a.click();
+  URL.revokeObjectURL(a.href);
+}
 export function useStored<T>(key: string, fallback: T) {
   const [value, setValue] = useState<T>(() => {
     try {
@@ -234,6 +243,8 @@ export function FormField({
   name,
   type = "text",
   value,
+  list,
+  placeholder,
   min,
   max,
   step,
@@ -242,6 +253,8 @@ export function FormField({
   name?: string;
   type?: string;
   value?: string;
+  list?: string;
+  placeholder?: string;
   min?: string;
   max?: string;
   step?: string;
@@ -255,6 +268,8 @@ export function FormField({
         name={name}
         type={type}
         defaultValue={value}
+        list={list}
+        placeholder={placeholder}
         required
         min={min}
         max={max}

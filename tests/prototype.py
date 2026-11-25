@@ -91,7 +91,7 @@ with sync_playwright() as p:
     ok('Communication : brouillon et publication sans envoi réel')
     page.get_by_label('Profil de démonstration',exact=True).select_option('Parent')
     page.get_by_role('heading',name='Bonjour, Sophie.').wait_for()
-    assert page.locator('.nav-item').filter(has_text='Élèves & inscriptions').count()==0
+    assert page.locator('.nav-item').filter(has_text='Élèves & inscriptions').count()==1
     page.locator('nav a[href="/grades"]').click()
     assert page.locator('tbody tr').count()==1
     assert page.get_by_label('Note de Emma Laurent',exact=True).is_disabled()

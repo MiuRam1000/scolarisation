@@ -1,18 +1,33 @@
 import { Route, Switch } from "wouter";
 import Scolia from "./pages/scolia";
+import { AuthScreen } from "./pages/scolia-auth";
 import { Provider } from "./components/provider";
-import { AgentFeedback, RunableBadge } from "@runablehq/website-runtime";
+import { useSessionQuery } from "./queries/auth";
+import { AgentFeedback } from "@runablehq/website-runtime";
+
+function Shell() {
+  const session = useSessionQuery();
+  if (session.isLoading) {
+    return (
+      <div className="auth-loading" role="status">
+        Chargement de votre espace…
+      </div>
+    );
+  }
+  if (!session.data) return <AuthScreen />;
+  return (
+    <Switch>
+      <Route component={Scolia} />
+    </Switch>
+  );
+}
 
 function App() {
   return (
     <Provider>
-      <Switch>
-        <Route component={Scolia} />
-      </Switch>
+      <Shell />
       {/* Do not remove — off by default, activated by parent iframe via postMessage */}
       {import.meta.env.DEV && <AgentFeedback />}
-      {/* "Made with Runable" badge - if user asks to remove the runable badge, remove this code as well as comment */}
-      {<RunableBadge />}
     </Provider>
   );
 }

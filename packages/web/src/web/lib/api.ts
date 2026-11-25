@@ -5,6 +5,9 @@ import type { AppRouterClient } from "../../api";
 
 const link = new RPCLink({
   url: `${window.location.origin}/api/rpc`,
+  // POST systématique : les procédures authentifiées lisent le cookie de session
+  // et évitent toute ambiguïté de méthode côté handler.
+  method: "POST",
 });
 
 /** Direct typed client: await client.ping() */

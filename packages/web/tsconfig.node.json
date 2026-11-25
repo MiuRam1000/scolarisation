@@ -28,10 +28,10 @@
 				"./src/*"
 			]
 		}
-	},
-	"include": [
-		"vite.config.ts",
-		"src/__server.ts",
-		"src/server.ts"
-	]
+	},  "include": [
+    "vite.config.ts",
+    "src/server.ts",
+    "src/__server.ts",
+    "src/api"
+  ]
 }

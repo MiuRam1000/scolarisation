@@ -13,7 +13,13 @@
     "preview": "bun run build && vite preview",
     "db:generate": "bun --env-file=../../.env drizzle-kit generate",
     "db:migrate": "bun --env-file=../../.env drizzle-kit migrate",
-    "db:push": "bun --env-file=../../.env drizzle-kit push"
+    "db:push": "bun --env-file=../../.env drizzle-kit push",
+    "db:backup": "bun --env-file=../../.env scripts/db-backup.ts",
+    "db:restore": "bun --env-file=../../.env scripts/db-restore.ts",
+    "db:verify-restore": "bun --env-file=../../.env scripts/db-verify.ts",
+    "db:seed": "bun --env-file=../../.env scripts/db-seed.ts",
+    "db:seed:reset": "bun --env-file=../../.env scripts/db-seed.ts --reset",
+    "test:api": "bun test test"
   },
   "dependencies": {
     "@libsql/client": "^0.17.2",

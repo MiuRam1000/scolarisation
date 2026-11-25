@@ -1,4 +1,4 @@
-export type DemoRow = { name: string; sub: string; fields: string[]; status: string };
+export type DemoRow = { name: string; sub: string; fields: string[]; status: string; id?: string };
 export type Module = {
   id: string;
   title: string;
@@ -22,12 +22,12 @@ export const students: DemoRow[] = [
     "Gabriel Dubois",
     "SC-2026-004",
     ["6e A", "Claire Dubois", "14/09/2026"],
-    "Dossier incomplet",
+    "En attente de validation",
   ),
   row("Léa Moreau", "SC-2026-005", ["4e A", "Julie Moreau", "12/09/2026"], "Actif"),
   row("Noah Bernard", "SC-2026-006", ["5e B", "Marc Bernard", "15/09/2026"], "Actif"),
   row("Chloé Andria", "SC-2026-007", ["3e A", "Lala Andria", "16/09/2026"], "Actif"),
-  row("Adam Petit", "SC-2026-008", ["6e B", "Nadia Petit", "16/09/2026"], "En attente"),
+  row("Adam Petit", "SC-2026-008", ["6e B", "Nadia Petit", "16/09/2026"], "En attente de validation"),
 ];
 export const modules: Module[] = [
   {
@@ -99,14 +99,14 @@ export const modules: Module[] = [
     title: "Matières & programmes",
     section: "PÉDAGOGIE",
     description: "Des référentiels pédagogiques cohérents et versionnés.",
-    columns: ["Matière", "Niveau", "Coefficient", "Volume horaire", "Statut"],
-    action: "Créer une matière",
+    columns: ["Matière", "Niveau", "Programme", "Coefficient", "Volume horaire", "Statut"],
+    action: "Créer une matière ou un programme",
     rows: [
-      row("Mathématiques", "Programme 2026–2027", ["4e", "4", "4 h / semaine"]),
-      row("Français", "Programme 2026–2027", ["4e", "4", "4 h / semaine"]),
-      row("Histoire-géographie", "Programme 2026–2027", ["4e", "3", "3 h / semaine"]),
-      row("Sciences physiques", "Programme 2026–2027", ["4e", "2", "2 h / semaine"]),
-      row("Anglais", "Programme 2026–2027", ["4e", "2", "3 h / semaine"]),
+      row("Mathématiques", "4e", ["4e", "Programme 2026–2027", "4", "4 h / semaine"]),
+      row("Français", "4e", ["4e", "Programme 2026–2027", "4", "4 h / semaine"]),
+      row("Histoire-géographie", "4e", ["4e", "Programme 2026–2027", "3", "3 h / semaine"]),
+      row("Sciences physiques", "4e", ["4e", "Programme 2026–2027", "2", "2 h / semaine"]),
+      row("Anglais", "4e", ["4e", "Programme 2026–2027", "2", "3 h / semaine"]),
     ],
   },
   {
